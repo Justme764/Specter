@@ -48,7 +48,7 @@ class Wallet:
             public_pem = self.serialize_public_key(public_key)
             self.write_key(wallet_name+'/Public', public_pem)
 
-        print 'Key\'s found!: ' + wallet_name
+            print OK + 'Key\'s found!: ' + wallet_name + END
 
         # Set the name
         self.name = wallet_name[4:]
@@ -89,7 +89,7 @@ class Wallet:
             try:
                 response = requests.post(node, data)
             except requests.exceptions.RequestException:
-                print "Failed to contact node: " + node
+                print FAIL + "Failed to contact node: " + node + END
 
     def create_transaction(self, amount, to):
         # First we need to generate a signature
